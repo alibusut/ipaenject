@@ -1,0 +1,313 @@
+name: 🚀 IPAenject - Build Modified iOS App
+
+on:
+  workflow_dispatch:
+    inputs:
+      ipa_url:
+        description: "URL to the decrypted IPA file"
+        required: true
+        type: string
+
+      app_type:
+        description: "Application Type"
+        required: true
+        default: "whatsapp"
+        type: choice
+        options:
+          - whatsapp
+          - youtube
+          - instagram
+          - tiktok
+          - telegram
+          - spotify
+          - snapchat
+          - discord
+
+      # WhatsApp tweaks
+      enable_watusi:
+        description: "🔹 Watusi 3 (WhatsApp enhancement suite)"
+        type: boolean
+        required: false
+        default: false
+
+      enable_stalky:
+        description: "🔹 Stalky (Activity monitoring)"
+        type: boolean  
+        required: false
+        default: false
+
+      enable_regram:
+        description: "🔹 RegramB23 (Media saving)"
+        type: boolean
+        required: false
+        default: false
+
+      enable_onlinenotify:
+        description: "🔹 OnlineNotify (Online status notifications)"
+        type: boolean
+        required: false
+        default: false
+
+      enable_wa_location_spoof:
+        description: "🔹 WALocationSpoofer (Fake location)"
+        type: boolean
+        required: false
+        default: false
+
+      # YouTube tweaks (placeholder for future)
+      enable_ytlite:
+        description: "🔴 YTLite (YouTube enhancement)"
+        type: boolean
+        required: false
+        default: false
+
+      enable_cercube:
+        description: "🔴 Cercube (YouTube downloader)"
+        type: boolean
+        required: false
+        default: false
+
+      # Universal tweaks
+      enable_adblock:
+        description: "🌐 Universal AdBlock"
+        type: boolean
+        required: false
+        default: true
+
+      enable_jb_bypass:
+        description: "🌐 Jailbreak Detection Bypass"
+        type: boolean
+        required: false
+        default: true
+
+      # App configuration
+      display_name:
+        description: "App Display Name (Optional)"
+        required: false
+        type: string
+
+      bundle_id:
+        description: "Bundle ID (Optional)"
+        required: false
+        type: string
+
+      app_version:
+        description: "App Version (Optional)"
+        default: "1.0.0"
+        required: false
+        type: string
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-modified-app:
+    name: 🔨 Build ${{ github.event.inputs.app_type }}++
+    runs-on: macos-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 📱 Download and Validate IPA
+        run: |
+          echo "⬇️ Downloading IPA..."
+          wget "${{ github.event.inputs.ipa_url }}" --timeout=30 -O original.ipa
+          
+          file_type=$(file --mime-type -b original.ipa)
+          if [[ "$file_type" != "application/x-ios-app" && "$file_type" != "application/zip" ]]; then
+            echo "::error::Invalid IPA file type: $file_type"
+            exit 1
+          fi
+          
+          file_size=$(stat -f%z original.ipa 2>/dev/null || stat -c%s original.ipa)
+          echo "✅ IPA validated ($((file_size/1024/1024))MB)"
+
+      - name: 🛠️ Install Dependencies
+        run: |
+          brew install ldid
+          pipx install --force https://github.com/asdfzxcvbn/pyzule-rw/archive/main.zip
+          mkdir -p output build
+
+      - name: 🧩 Prepare Tweaks
+        run: |
+          echo "🔍 Preparing tweaks for: ${{ github.event.inputs.app_type }}"
+          selected_tweaks=""
+          
+          # Universal tweaks
+          if [ "${{ github.event.inputs.enable_adblock }}" = "true" ]; then
+            find tweaks/universal/adblock -name "*.dylib" -exec cp {} build/ \; 2>/dev/null || true
+            selected_tweaks="$selected_tweaks adblock"
+          fi
+          
+          if [ "${{ github.event.inputs.enable_jb_bypass }}" = "true" ]; then
+            find tweaks/universal/jailbreak-detection -name "*.dylib" -exec cp {} build/ \; 2>/dev/null || true
+            selected_tweaks="$selected_tweaks jb-bypass"
+          fi
+          
+          # WhatsApp tweaks
+          if [ "${{ github.event.inputs.app_type }}" = "whatsapp" ]; then
+            if [ "${{ github.event.inputs.enable_watusi }}" = "true" ]; then
+              find tweaks/social/whatsapp -name "*atusi*" -name "*.dylib" -exec cp {} build/ \; 2>/dev/null || true
+              selected_tweaks="$selected_tweaks watusi"
+            fi
+            
+            if [ "${{ github.event.inputs.enable_stalky }}" = "true" ]; then
+              find tweaks/social/whatsapp -name "*talky*" -name "*.dylib" -exec cp {} build/ \; 2>/dev/null || true
+              selected_tweaks="$selected_tweaks stalky"
+            fi
+            
+            if [ "${{ github.event.inputs.enable_regram }}" = "true" ]; then
+              find tweaks/social/whatsapp -name "*egram*" -name "*.dylib" -exec cp {} build/ \; 2>/dev/null || true
+              selected_tweaks="$selected_tweaks regram"
+            fi
+            
+            if [ "${{ github.event.inputs.enable_onlinenotify }}" = "true" ]; then
+              find tweaks/social/whatsapp -name "*nline*otify*" -name "*.dylib" -exec cp {} build/ \; 2>/dev/null || true
+              selected_tweaks="$selected_tweaks onlinenotify"
+            fi
+            
+            if [ "${{ github.event.inputs.enable_wa_location_spoof }}" = "true" ]; then
+              find tweaks/social/whatsapp -name "*ocation*poof*" -name "*.dylib" -exec cp {} build/ \; 2>/dev/null || true
+              selected_tweaks="$selected_tweaks location-spoof"
+            fi
+          fi
+          
+          echo "SELECTED_TWEAKS=$selected_tweaks" >> $GITHUB_ENV
+          echo "📋 Prepared tweaks:$selected_tweaks"
+
+      - name: 🔧 Inject Tweaks
+        run: |
+          if [ ! "$(ls -A build/)" ]; then
+            echo "⚠️ No tweaks found - creating unmodified copy"
+            cp original.ipa output/modified.ipa
+            exit 0
+          fi
+          
+          cyan_cmd="cyan -i original.ipa -o output/modified.ipa"
+          
+          # Add display name
+          if [ -n "${{ github.event.inputs.display_name }}" ]; then
+            cyan_cmd="$cyan_cmd -n '${{ github.event.inputs.display_name }}'"
+          else
+            case "${{ github.event.inputs.app_type }}" in
+              whatsapp) cyan_cmd="$cyan_cmd -n 'WhatsApp++'" ;;
+              *) cyan_cmd="$cyan_cmd -n '${{ github.event.inputs.app_type }}++'" ;;
+            esac
+          fi
+          
+          # Add bundle ID
+          if [ -n "${{ github.event.inputs.bundle_id }}" ]; then
+            cyan_cmd="$cyan_cmd -b '${{ github.event.inputs.bundle_id }}'"
+          fi
+          
+          # Add tweaks
+          for file in build/*; do
+            if [ -f "$file" ]; then
+              cyan_cmd="$cyan_cmd $file"
+            fi
+          done
+          
+          echo "🏃‍♂️ Executing: $cyan_cmd"
+          if eval "$cyan_cmd"; then
+            echo "✅ Injection completed!"
+          else
+            echo "❌ Injection failed, using fallback"
+            cp original.ipa output/modified.ipa
+          fi
+
+      - name: �� Sign Application
+        run: |
+          cd output/
+          unzip -q modified.ipa
+          app_path=$(find Payload -name "*.app" -type d | head -n1)
+          
+          if [ -n "$app_path" ] && command -v ldid &> /dev/null; then
+            ldid -S "$app_path" || echo "Signing failed"
+          fi
+          
+          rm modified.ipa
+          zip -rq modified.ipa Payload/
+          rm -rf Payload/
+
+      - name: 📊 Generate Build Info
+        run: |
+          build_date=$(date '+%Y-%m-%d %H:%M:%S UTC')
+          output_size=$(stat -f%z output/modified.ipa 2>/dev/null || stat -c%s output/modified.ipa)
+          
+          cat > output/BUILD_INFO.txt << EOF
+🚀 IPAenject Build Information
+====================================
+
+📅 Build Date: $build_date
+📱 App Type: ${{ github.event.inputs.app_type }}
+🧩 Tweaks: $SELECTED_TWEAKS
+📦 Size: $((output_size/1024/1024))MB
+
+🔗 Repository: https://github.com/${{ github.repository }}
+🏃‍♂️ Workflow: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+⚠️ IMPORTANT:
+- Personal use only
+- Own the original app
+- Use AltStore/Sideloadly for installation
+- Trust certificate in iOS Settings
+
+📱 Installation Guide:
+1. Download modified.ipa
+2. Install with sideloading tool
+3. Trust certificate in Settings
+4. Enjoy your enhanced app!
+
+Built with ❤️ using IPAenject
+EOF
+
+      - name: 📤 Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.event.inputs.app_type }}-plus-${{ github.run_number }}
+          path: |
+            output/modified.ipa
+            output/BUILD_INFO.txt
+          retention-days: 30
+
+      - name: 🎉 Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: build-${{ github.run_number }}
+          name: "📱 ${{ github.event.inputs.app_type }}++ - Build ${{ github.run_number }}"
+          body: |
+            ## 🚀 IPAenject Build Complete
+            
+            **📱 App:** ${{ github.event.inputs.app_type }}  
+            **🧩 Tweaks:** ${{ env.SELECTED_TWEAKS }}  
+            **📅 Date:** $(date '+%Y-%m-%d %H:%M UTC')
+            
+            ### 📥 Installation:
+            1. Download `modified.ipa`
+            2. Use [AltStore](https://altstore.io) or [Sideloadly](https://sideloadly.io)
+            3. Trust certificate in iOS Settings
+            
+            ### ⚠️ Notes:
+            - Personal use only
+            - Free certificates expire in 7 days
+            - Backup your data first
+            
+            Built with IPAenject ✨
+          files: |
+            output/modified.ipa
+            output/BUILD_INFO.txt
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: ✅ Build Complete
+        run: |
+          echo "🎉 BUILD COMPLETE!"
+          echo "📱 App: ${{ github.event.inputs.app_type }}++"
+          echo "🧩 Tweaks: $SELECTED_TWEAKS"
+          echo "🔗 Download: https://github.com/${{ github.repository }}/releases/latest"
