@@ -1,0 +1,10 @@
+# This is a placeholder file to maintain directory structure
+# Replace this file with actual .dylib files
+
+# Example TikTok tweaks you can add:
+# - tiktok-plus.dylib
+# - tiktok-god.dylib  
+# - tiktoklrd.dylib
+# - tiktok-unicorn.dylib
+
+# Make sure to update the tweak manifest when adding real tweaks!

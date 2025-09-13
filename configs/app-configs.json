@@ -1,0 +1,227 @@
+{
+  "apps": {
+    "youtube": {
+      "name": "YouTube",
+      "bundle_id": "com.google.ios.youtube",
+      "display_name": "YouTube++",
+      "icon": "📺",
+      "category": "media",
+      "compatible_tweaks": [
+        "youtube-reborn",
+        "youtopia", 
+        "ytuhd",
+        "youpip",
+        "sponsorblock",
+        "ytmusic-plus"
+      ],
+      "recommended_tweaks": [
+        "youtube-reborn",
+        "sponsorblock",
+        "universal-adblock"
+      ],
+      "min_ios_version": "13.0",
+      "notes": "Most popular video streaming app with extensive tweak support"
+    },
+    
+    "instagram": {
+      "name": "Instagram", 
+      "bundle_id": "com.burbn.instagram",
+      "display_name": "Instagram++",
+      "icon": "📸",
+      "category": "social",
+      "compatible_tweaks": [
+        "instagram-plus",
+        "rocket-instagram",
+        "instasave",
+        "instanosen",
+        "igtheme",
+        "iganalytics"
+      ],
+      "recommended_tweaks": [
+        "instagram-plus",
+        "instasave",
+        "universal-adblock"
+      ],
+      "min_ios_version": "12.0",
+      "notes": "Social media app with media downloading capabilities"
+    },
+
+    "tiktok": {
+      "name": "TikTok",
+      "bundle_id": "com.zhiliaoapp.musically",
+      "display_name": "TikTok++",
+      "icon": "🎵",
+      "category": "media",
+      "compatible_tweaks": [
+        "tiktok-plus",
+        "tiktok-god",
+        "tiktok-unicorn",
+        "tiktoklrd"
+      ],
+      "recommended_tweaks": [
+        "tiktok-plus",
+        "universal-adblock"
+      ],
+      "min_ios_version": "12.0",
+      "notes": "Short video platform with download and enhancement features"
+    },
+
+    "whatsapp": {
+      "name": "WhatsApp",
+      "bundle_id": "net.whatsapp.WhatsApp", 
+      "display_name": "WhatsApp++",
+      "icon": "💬",
+      "category": "social",
+      "compatible_tweaks": [
+        "watusi",
+        "whatsapp-plus",
+        "onlinenotify",
+        "wamessages"
+      ],
+      "recommended_tweaks": [
+        "watusi",
+        "privacy-pro"
+      ],
+      "min_ios_version": "12.0",
+      "notes": "Messaging app with privacy and customization tweaks"
+    },
+
+    "telegram": {
+      "name": "Telegram",
+      "bundle_id": "ph.telegra.Telegraph",
+      "display_name": "Telegram++", 
+      "icon": "✈️",
+      "category": "social",
+      "compatible_tweaks": [
+        "telegram-plus",
+        "nicetelegram",
+        "telegramswift"
+      ],
+      "recommended_tweaks": [
+        "nicetelegram",
+        "privacy-pro"
+      ],
+      "min_ios_version": "12.0",
+      "notes": "Secure messaging with enhanced features"
+    },
+
+    "spotify": {
+      "name": "Spotify",
+      "bundle_id": "com.spotify.client",
+      "display_name": "Spotify++",
+      "icon": "🎶", 
+      "category": "media",
+      "compatible_tweaks": [
+        "spotify-plus",
+        "spotilife",
+        "sposify"
+      ],
+      "recommended_tweaks": [
+        "spotilife",
+        "universal-adblock"
+      ],
+      "min_ios_version": "13.0",
+      "notes": "Music streaming with premium features unlocked"
+    },
+
+    "snapchat": {
+      "name": "Snapchat",
+      "bundle_id": "com.toyopagroup.picaboo",
+      "display_name": "Snapchat++",
+      "icon": "👻",
+      "category": "social", 
+      "compatible_tweaks": [
+        "snapchat-plus",
+        "phantom",
+        "snapbreak"
+      ],
+      "recommended_tweaks": [
+        "phantom",
+        "privacy-pro"
+      ],
+      "min_ios_version": "13.0",
+      "notes": "Photo messaging with saving and privacy features"
+    },
+
+    "discord": {
+      "name": "Discord",
+      "bundle_id": "com.hammerandchisel.discord",
+      "display_name": "Discord++",
+      "icon": "🎮",
+      "category": "social",
+      "compatible_tweaks": [
+        "discord-plus", 
+        "enmity",
+        "vendetta"
+      ],
+      "recommended_tweaks": [
+        "enmity",
+        "universal-adblock"
+      ],
+      "min_ios_version": "13.0",
+      "notes": "Gaming communication with enhanced features"
+    },
+
+    "custom": {
+      "name": "Custom App",
+      "bundle_id": "com.custom.app",
+      "display_name": "Custom++",
+      "icon": "🔧",
+      "category": "custom",
+      "compatible_tweaks": [
+        "universal-adblock",
+        "liberty-lite",
+        "flex3",
+        "appstore-plus"
+      ],
+      "recommended_tweaks": [
+        "universal-adblock",
+        "liberty-lite"
+      ],
+      "min_ios_version": "12.0",
+      "notes": "For custom applications with universal tweaks"
+    }
+  },
+
+  "tweak_categories": {
+    "adblock": {
+      "name": "Ad Blocking",
+      "description": "Remove advertisements from apps",
+      "icon": "🛡️"
+    },
+    "download": {
+      "name": "Media Download", 
+      "description": "Download photos, videos, and music",
+      "icon": "📥"
+    },
+    "privacy": {
+      "name": "Privacy Enhancement",
+      "description": "Protect privacy and hide activity",
+      "icon": "🔒"
+    },
+    "customization": {
+      "name": "UI Customization",
+      "description": "Customize app appearance and behavior", 
+      "icon": "🎨"
+    },
+    "premium": {
+      "name": "Premium Unlock",
+      "description": "Unlock premium features for free",
+      "icon": "💎"
+    },
+    "jailbreak": {
+      "name": "Jailbreak Detection",
+      "description": "Bypass jailbreak detection systems",
+      "icon": "🔓"
+    }
+  },
+
+  "build_settings": {
+    "default_version": "1.0.0",
+    "signing_method": "free",
+    "compression": "zip",
+    "cleanup_temp": true,
+    "verify_tweaks": true,
+    "max_build_time": 30
+  }
+}

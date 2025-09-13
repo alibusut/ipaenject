@@ -1,0 +1,206 @@
+{
+  "manifest_version": "1.0",
+  "last_updated": "2024-01-15",
+  "tweaks": {
+    "youtube-reborn": {
+      "name": "YouTube Reborn",
+      "version": "4.4.3",
+      "author": "@LillieH1000",
+      "description": "Complete YouTube enhancement with ad blocking, downloads, and premium features",
+      "category": ["adblock", "download", "premium"],
+      "file": "youtube-reborn.dylib",
+      "size": "2.1MB",
+      "compatibility": {
+        "ios_min": "13.0",
+        "ios_max": "17.0",
+        "app_versions": ["18.0+"]
+      },
+      "features": [
+        "Remove all advertisements",
+        "Download videos in various qualities",
+        "Background playback", 
+        "Picture-in-Picture support",
+        "Customizable interface"
+      ],
+      "conflicts": ["youtopia"],
+      "verified": true,
+      "rating": 5.0
+    },
+
+    "youtopia": {
+      "name": "YouTopia",
+      "version": "1.0.5", 
+      "author": "@arichornlover",
+      "description": "YouTube UI enhancement and customization suite",
+      "category": ["customization", "adblock"],
+      "file": "youtopia.dylib",
+      "size": "1.8MB",
+      "compatibility": {
+        "ios_min": "14.0",
+        "ios_max": "17.0", 
+        "app_versions": ["17.5+"]
+      },
+      "features": [
+        "Custom themes and colors",
+        "Enhanced video controls",
+        "Remove unwanted UI elements",
+        "Advanced gestures"
+      ],
+      "conflicts": ["youtube-reborn"],
+      "verified": true,
+      "rating": 4.8
+    },
+
+    "instagram-plus": {
+      "name": "Instagram++",
+      "version": "1.8r-347",
+      "author": "@angelXwind",
+      "description": "Instagram enhancement with download and privacy features",
+      "category": ["download", "privacy"],
+      "file": "instagram-plus.dylib", 
+      "size": "1.2MB",
+      "compatibility": {
+        "ios_min": "12.0",
+        "ios_max": "17.0",
+        "app_versions": ["290.0+"]
+      },
+      "features": [
+        "Download photos and videos",
+        "View full-size profile pictures",
+        "Disable read receipts",
+        "Save stories and highlights"
+      ],
+      "conflicts": [],
+      "verified": true,
+      "rating": 4.9
+    },
+
+    "spotilife": {
+      "name": "Spotilife",
+      "version": "1.8a",
+      "author": "@julioverne", 
+      "description": "Spotify premium features unlock",
+      "category": ["premium", "adblock"],
+      "file": "spotilife.dylib",
+      "size": "856KB",
+      "compatibility": {
+        "ios_min": "13.0",
+        "ios_max": "17.0",
+        "app_versions": ["8.8.0+"]
+      },
+      "features": [
+        "Remove audio advertisements",
+        "Unlimited skips",
+        "High quality streaming", 
+        "Download for offline (limited)"
+      ],
+      "conflicts": ["spotify-plus"],
+      "verified": true,
+      "rating": 4.7
+    },
+
+    "watusi": {
+      "name": "Watusi 3",
+      "version": "1.4.19",
+      "author": "@FouadRaheb",
+      "description": "WhatsApp enhancement and privacy suite",
+      "category": ["privacy", "customization"],
+      "file": "watusi.dylib",
+      "size": "3.4MB",
+      "compatibility": {
+        "ios_min": "12.0", 
+        "ios_max": "17.0",
+        "app_versions": ["23.0+"]
+      },
+      "features": [
+        "Hide online status",
+        "Disable read receipts",
+        "Custom themes",
+        "Privacy controls",
+        "Message scheduling"
+      ],
+      "conflicts": [],
+      "verified": true,
+      "rating": 4.6
+    },
+
+    "universal-adblock": {
+      "name": "Universal AdBlock",
+      "version": "2.1.0",
+      "author": "Community",
+      "description": "System-wide advertisement blocking for all apps",
+      "category": ["adblock"],
+      "file": "universal-adblock.dylib",
+      "size": "945KB", 
+      "compatibility": {
+        "ios_min": "12.0",
+        "ios_max": "17.0",
+        "app_versions": ["Universal"]
+      },
+      "features": [
+        "Block network advertisements",
+        "Remove tracking scripts",
+        "Faster app loading",
+        "Reduced data usage"
+      ],
+      "conflicts": [],
+      "verified": true,
+      "rating": 4.5
+    },
+
+    "liberty-lite": {
+      "name": "Liberty Lite (Beta)",
+      "version": "0.2.12",
+      "author": "@roolI",
+      "description": "Bypass jailbreak detection in apps", 
+      "category": ["jailbreak"],
+      "file": "liberty-lite.dylib",
+      "size": "234KB",
+      "compatibility": {
+        "ios_min": "11.0",
+        "ios_max": "17.0",
+        "app_versions": ["Universal"]
+      },
+      "features": [
+        "Bypass jailbreak detection",
+        "Hide jailbreak from banking apps",
+        "Configurable per-app settings"
+      ],
+      "conflicts": ["a-bypass"],
+      "verified": true,
+      "rating": 4.3
+    },
+
+    "flex3": {
+      "name": "Flex 3",
+      "version": "3~Beta97",
+      "author": "@johncoates",
+      "description": "Runtime app modification and patching system",
+      "category": ["customization"],
+      "file": "flex3.dylib",
+      "size": "4.2MB",
+      "compatibility": {
+        "ios_min": "12.0",
+        "ios_max": "16.7",
+        "app_versions": ["Universal"]
+      },
+      "features": [
+        "Runtime method hooking",
+        "Custom patches",
+        "Cloud patch sharing",
+        "Advanced debugging"
+      ],
+      "conflicts": [],
+      "verified": false,
+      "rating": 4.1
+    }
+  },
+
+  "stats": {
+    "total_tweaks": 8,
+    "verified_tweaks": 7, 
+    "categories": 6,
+    "supported_apps": 9,
+    "average_rating": 4.6
+  }
+}

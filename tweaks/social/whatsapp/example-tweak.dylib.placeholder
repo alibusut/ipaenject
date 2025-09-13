@@ -1,0 +1,10 @@
+# This is a placeholder file to maintain directory structure  
+# Replace this file with actual .dylib files
+
+# Example WhatsApp tweaks you can add:
+# - watusi.dylib
+# - whatsapp-plus.dylib
+# - onlinenotify.dylib
+# - wamessages.dylib
+
+# Make sure to update the tweak manifest when adding real tweaks!

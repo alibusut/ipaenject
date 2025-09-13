@@ -1,0 +1,135 @@
+# iOS App Patcher - Git Ignore Rules
+
+# Build artifacts
+build/
+output/
+*.ipa
+*.deb
+*.dylib
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*~
+
+# Logs
+logs/
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sensitive information
+secrets/
+*.p12
+*.mobileprovision
+*.pem
+*.key
+
+# Certificate files
+certificates/
+profiles/
+entitlements/
+
+# Node modules (if using Node.js tools)
+node_modules/
+package-lock.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Archives
+*.zip
+*.tar.gz
+*.tar.bz2
+*.rar
+*.7z
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Local configuration
+config.local.*
+.env
+.env.local
+
+# Test files
+test-ipa/
+sample-apps/
+test-output/
+
+# Documentation builds
+docs/_build/
+site/
+
+# Cache
+cache/
+.cache/
+
+# MacOS specific
+*.dSYM/
+xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+*.xcscmblueprint
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Provisioning profiles
+*.mobileprovision
+
+# Code signing
+*.p12
+*.cer
+
+# Compiled dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Executables
+*.exe
+*.out
+*.app
+
+# OS generated files
+.fuse_hidden*
+.Trash-*
+.nfs*

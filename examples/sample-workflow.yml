@@ -1,0 +1,49 @@
+# 📝 Sample Workflow Example
+# This is an example of how to manually trigger the build workflow
+
+name: Sample Build - YouTube with Popular Tweaks
+
+# This workflow demonstrates building YouTube with commonly used tweaks
+# You can copy and modify this for your own automated builds
+
+on:
+  # Manual trigger only for this example
+  workflow_dispatch:
+
+jobs:
+  build-youtube-example:
+    name: 🎬 Build YouTube++ Sample
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: 🚀 Trigger Main Build Workflow
+        uses: ./.github/workflows/build-app.yml
+        with:
+          # Example configuration for YouTube
+          ipa_url: 'https://your-file-host.com/youtube.ipa'
+          app_type: 'youtube'
+          selected_tweaks: 'youtube-reborn,sponsorblock,universal-adblock'
+          bundle_id: 'com.yourname.youtube'
+          display_name: 'YouTube++'
+          app_version: '1.0.0'
+          
+  # Another example for Instagram
+  build-instagram-example:
+    name: 📸 Build Instagram++ Sample
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout Repository  
+        uses: actions/checkout@v4
+        
+      - name: 🚀 Trigger Main Build Workflow
+        uses: ./.github/workflows/build-app.yml
+        with:
+          ipa_url: 'https://your-file-host.com/instagram.ipa'
+          app_type: 'instagram'
+          selected_tweaks: 'instagram-plus,instasave'
+          bundle_id: 'com.yourname.instagram'
+          display_name: 'Instagram++'

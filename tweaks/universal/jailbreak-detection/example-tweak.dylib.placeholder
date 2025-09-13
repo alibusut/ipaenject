@@ -1,0 +1,11 @@
+# This is a placeholder file to maintain directory structure
+# Replace this file with actual .dylib files
+
+# Example Jailbreak Detection Bypass tweaks you can add:
+# - liberty-lite.dylib
+# - a-bypass.dylib  
+# - shadow.dylib
+# - kernbypass.dylib
+# - hideliberty.dylib
+
+# Make sure to update the tweak manifest when adding real tweaks!
