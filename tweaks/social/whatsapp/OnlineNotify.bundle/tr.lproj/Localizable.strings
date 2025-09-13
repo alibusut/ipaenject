@@ -1,0 +1,142 @@
+/* Settings */
+
+"PREFERENCES" = "OnlineNotify Ayarları";
+
+"ONLINE_CONTACTS" = "Çevrimiçi Kişiler";
+
+"TRACKING_TABLE" = "Takip Listesi";
+"NOTIFICATIONS_LOGS" = "Kişiler Günlükleri";
+
+"ENABLE_DESCRIPTION" = "Bildirimleri almaya başlamak için etkinleştir";
+"ENABEL_LABEL" = "Bildirimleri Etkinleştir";
+
+"CONTACTS_NOTIFICATIONS_SECTION_HEADER" = "Kişiler Bildirimleri";
+"CONTACTS_NOTIFICATIONS_SECTION_FOOTER" = "- Seçilen kullanıcılar için çevrimiçi / çevrimdışı bildirimleri alın. (İzleme Tablosundan kullanıcı ekleyin.\n- Kişilerinizden herhangi biri sohbetinize yazmaya başladığında bildirim alın.\n- Bir kişi gönderdiğiniz iletileri okuduğunda bildirim alın.";
+"ONLINE_NOTIFICATION_LABEL" = "Çevrimiçi Bildirimleri";
+"OFFLINE_NOTIFICATION_LABEL" = "Çevrimdışı Bildirimleri";
+"TYPING_NOTIFICATION_LABEL" = "Yazıyor Bildirimleri";
+"RECORDING_NOTIFICATION_LABEL" = "Kaydediyor Bildirimleri";
+"READ_MESSAGE_NOTIFICATION_LABEL" = "Mesajınız Okundu Bildirimleri";
+"STATUS_VIEWED_NOTIFICATION_LABEL" = "Durum Görüntülendi Bildirimleri";
+
+"GROUPS_NOTIFICATIONS_SECTION_HEADER" = "Grup Bildirimleri";
+"GROUPS_NOTIFICATIONS_SECTION_FOOTER" = "Bulunduğunuz gruplardaki üyeler için yazma, kaydetme ve okuma mesajları bildirimleri alın.";
+"GROUPS_TYPING_NOTIFICATION_LABEL" = "Yazıyor Bildirimleri";
+"GROUPS_RECORDING_NOTIFICATION_LABEL" = "Kaydediyor Bildirimleri";
+"GROUPS_READ_MESSAGE_NOTIFICATION_LABEL" = "Mesaj Okundu Bildirimleri";
+
+"LOG_NOTIFCATIONS_LABEL" = "Bildirim Günlükleri";
+"LOG_NOTIFCATIONS_DESCRIPTION" = "Aldığınız tüm kişilerin Çevrimiçi / Çevrimdışı / Yazma bildirimlerini, Günlükler Tablosundan günlükleri kontrol edebilirsiniz.";
+
+"SELECTED_TYPING_LABEL" = "Favoriler için yazıyor";
+"SELECTED_RECORDING_LABEL" = "Favoriler için kaydediyor";
+"SELECTED_READ_MESSAGE_LABEL" = "Favoriler için mesajınız okundu";
+"SELECTED_STATUS_VIEWED_LABEL" = "Favoriler için Görüntülenen Durum";
+"SELECTED_NOTIFICATION_DESCRIPTION" = "Yalnızca izleme tablosunda seçtiğiniz favori kayıtlarınız için yazarak ve okundu mesajı alırsınız.";
+
+/* Notifications Settings */
+
+"NOTIFICATIONS_SETTINGS_SECTION_DESCRIPTION" = "Bildirim Stilini ve Sesini Özelleştirin";
+"NOTIFICATIONS_SETTINGS_LABEL" = "Bildirim Ayarları";
+
+"SHOW_TEST_NOTIFICATION" = "Örnek Bildirimi Göster";
+"TEST_NOTIFICATION_MESSAGE" = "Örnek mesaj bildirimi";
+
+"NOTIFICATION_SOUND_LABEL" = "Bildirim Sesi";
+"NOTIFICATION_SOUND_DESCRIPTION" = "Bildirim sesi seç.";
+
+"NOTIFICATION_STYLE_LABEL" = "Bildirim Stili";
+"NOTIFICATION_STYLE_DESCRIPTION" = "Uygulama İçi Bildirimler Stili";
+"NOTIFICATION_STYLE_STATUSBAR_LABEL" = "Durum Çubuğu";
+"NOTIFICATION_STYLE_SYSTEM_LABEL" = "Sistem";
+
+"OUTSIDE_NOTIFICATIONS" = "Dışarı Bildirimleri";
+"OUTSIDE_NOTIFICATIONS_DESCRIPTION" = "WhatsApp dışında OnlineNotify bildirimleri al.\nWhatsapp arkaplanda aktif olmalı ve sürekli online gözükürsün.";
+
+"ONLINE_CONTACTS_LIST_DESCRIPTION" = "Çevrimiçi kişilerinizi kontrol etmek için Sohbet Listesinin üstüne bir satır ekleyin.";
+"ONLINE_CONTACTS_LIST_LABEL" = "Çevrimiçi Kişiler Listesi";
+"ONLINE_CONTACTS_LIST_ONLINE_HEADER" = "Çevrimiçi";
+"ONLINE_CONTACTS_LIST_OFFLINE_HEADER" = "Çevrimdışı";
+"ONLINE_CONTACTS_LIST_ALERT_MESSAGE" = "Çevrimiçi Kişiler özelliği her zaman, birkaç saat sonra genellikle giderilen kişilerinizi talep etmekten engellendi. Bu engellemenin nedeni, tüm kişi listenizin son görülmesini getirmekte olduğunuzdan dolayı çok sayıda istekte bulunmanız. \ N \ nBu nedenle, bu listeyi takip etmeyi seçtiğiniz kişilerin çevrimiçi bir listesi haline getirmeye karar verdim.";
+"ONLINE_CONTACTS_LIST_PREFERENCES_TITLE" = "Liste Ayarları";
+"ONLINE_CONTACTS_LIST_SELECTED_CONTACTS" = "Seçili Kişiler";
+"ONLINE_CONTACTS_LIST_PICKER_TITLE" = "Kişiler";
+"ONLINE_CONTACTS_LIST_SHOW_OFFLINE_CONTACTS" = "Çevrimdışı Kişileri göster";
+"ONLINE_CONTACTS_LIST_SHOW_OFFLINE_LASTSEEN" = "Çevrimdışı kişilerin son görülmelerini göster";
+
+"ENABLE_NOTIFICATIONS_ALERT" = "Bildirimleri etkinleştirmek için WhatsApp'ın yeniden başlatılması gerekir";
+"DISABLE_NOTIFICATIONS_ALERT" = "Bildirimleri devre dışı bırakmak için WhatsApp'ın yeniden başlatılması gerekir";
+"ENABLE_OUTSIDE_NOTIFICATION_ALERT" = "Dışarıda bildirimlerin etkinleştirilmesi, cihaz kilitlendikten sonra Wi-Fi'yi etkin durumda tutar ve WhatsApp arka planda olduğunda bile çevrimiçi olarak her zaman gösterilirsiniz";
+
+/* Indicators */
+
+"ONLINE_INDICATORS_LABEL" = "Çevrimiçi Göstergeleri";
+"ONLINE_INDICATORS_SECTION_DESCRIPTION" = "Kişilerinizin yanına farklı yerlerde bir çevrimiçi göstergesi ekler.";
+
+"ONLINE_INDICATORS_STYLE_SECTION_LABEL" = "Stil";
+
+"ONLINE_INDICATOR_STYLE_LABEL" = "Çevrimiçi Gösterge Stili";
+"ONLINE_INDICATOR_STYLE_BAR_LABEL" = "Bar";
+"ONLINE_INDICATOR_STYLE_ROUNDED_LABEL" = "Nokta";
+
+"ONLINE_INDICATOR_COLOR_NAME_LABEL" = "Kişi Adını Renklendir";
+
+"FAVORITES_LIST_LABEL" = "Favoriler Listesi";
+"FAVORITES_LIST_DESCRIPTION" = "- Watusi sık kullanılanlar listesindeki Çevrimiçi Kullanıcıların yanına, kamera sekmesinin yerine yeşil bir gösterge ekler...\n- Watusi favori listesindeki durumu son görülme ile değiştir.";
+
+"GROUP_MEMBERS_LABEL" = "Grup Üyeleri";
+"GROUP_MEMBERS_DESCRIPTION" = "- Online olan grup üyelerinin yanına yeşil bir gösterge ekler.\n- Grup üyelerinin durumlarını son görülme ile değiştir.";
+
+"CHATS_LIST_LABEL" = "Sohbet Listesi";
+"CHATS_LIST_DESCRIPTION" = "Sohbet listesindeki Çevrimiçi Kullanıcıların yanına yeşil bir gösterge ekler.";
+
+"ONLINE_INDICATOR" = "Çevrimiçi Göstergesi";
+"LAST_SEEN" = "Son Görülme";
+
+/* Buttons */
+
+"ADD_CONTACT" = "Kişi Ekle";
+"CONTACT_ALREADY_EXISTS" = "Kişi zaten mevcut";
+
+"RELAUNCH" = "Yeniden Başlat";
+"LATER" = "Sonra";
+"CANCEL" = "İptal";
+"OKAY" = "Tamam";
+"DELETE" = "Sil";
+"ENABLE" = "Etkinleştir";
+"EXPORT" = "Dışa aktar";
+
+/* Messages */
+
+"ZIP_AND_EXPORT_LOGS" = "Günlükleri zipleyip dışa aktarır.";
+"DELETE_ALL_LOGS_WARNING" = "TÜM günlükleri siler.";
+"DELETE_ALL_LOGS_FOR_WARNING" = "Şu kişi için tüm günlükleri siler";
+
+"RELAUNCH_MESSAGE" = "Değişiklerin olması için WhatsApp'ı yeniden başlat.";
+
+/* Notifications */
+
+"ONLINE" = "Çevrimiçi";
+"OFFLINE" = "Çevrimdışı";
+"IS_TYPING" = "yazıyor...";
+"IS_RECORDING" = "Ses Kaydediyor...";
+"IS_TYPING_IN_GROUP" = "şu grupta yazıyor";
+"IS_RECORDING_IN_GROUP" = "şu grupta kaydediyor";
+"IS_NOW_ONLINE" = "şimdi çevrimiçi";
+"HAS_GONE_OFFLINE_AT" = "şu zamanda çevrimdışı oldu";
+"HAS_READ_YOUR_MESSAGES" = "mesajınızı okudu";
+"HAS_READ_YOUR_MESSAGES_IN_GROUP" = "grup mesajınızı okudu";
+"HAS_RECEIVED_YOUR_MESSAGES" = "mesajınızı aldı";
+"HAS_RECEIVED_YOUR_MESSAGES_IN_GROUP" = "grup mesajınızı aldı";
+"VIEWED_YOUR_STATUS" = "durumunuzu görüntüledi";
+
+/* Developer & Support Section */
+
+"DEVELOPER_SECTION_HEADER" = "Geliştirici";
+"CONTRIBUTE_LABEL" = "Bağış";
+
+"SUPPORT_SECTION_HEADER" = "Destek";
+"CONTACT_AND_MORE_LABEL" = "İletişim ve Fazlası";
+"ACCOUNT_AND_AD_REMOVAL_LABEL" = "Hesap ve Reklam Kaldırma";
+"CONTACT_SUPPORT_LABEL" = "Destekle İletişime Geç";
+"VERSIONS_SECTION_HEADER" = "Versiyon";

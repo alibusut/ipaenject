@@ -103,25 +103,125 @@
       "name": "Watusi 3",
       "version": "1.4.19",
       "author": "@FouadRaheb",
-      "description": "WhatsApp enhancement and privacy suite",
-      "category": ["privacy", "customization"],
-      "file": "watusi.dylib",
-      "size": "3.4MB",
+      "description": "The ultimate WhatsApp enhancement suite with 100+ features",
+      "category": ["privacy", "customization", "premium"],
+      "file": "Watusi.dylib",
+      "size": "2.6MB",
       "compatibility": {
         "ios_min": "12.0", 
         "ios_max": "17.0",
         "app_versions": ["23.0+"]
       },
       "features": [
-        "Hide online status",
-        "Disable read receipts",
-        "Custom themes",
-        "Privacy controls",
-        "Message scheduling"
+        "Hide online status & read receipts",
+        "Message scheduling & auto-reply",
+        "Download status videos/images",
+        "Custom themes & UI modifications",
+        "Privacy controls & call blocking",
+        "Chat locking & hiding",
+        "Advanced media sharing"
       ],
       "conflicts": [],
       "verified": true,
-      "rating": 4.6
+      "rating": 4.9
+    },
+
+    "stalky": {
+      "name": "Stalky",
+      "version": "4.0.8",
+      "author": "@FouadRaheb",
+      "description": "Advanced WhatsApp monitoring and activity tracking",
+      "category": ["privacy", "monitoring"],
+      "file": "Stalky.dylib",
+      "size": "5.4MB",
+      "compatibility": {
+        "ios_min": "13.0",
+        "ios_max": "17.0",
+        "app_versions": ["23.0+"]
+      },
+      "features": [
+        "Track online/offline status",
+        "Last seen monitoring",
+        "Message read status tracking",
+        "Advanced analytics dashboard",
+        "Export tracking data"
+      ],
+      "conflicts": [],
+      "verified": true,
+      "rating": 4.7
+    },
+
+    "online-notify": {
+      "name": "OnlineNotify",
+      "version": "3.1.5",
+      "author": "@tateu",
+      "description": "Get notified when contacts come online",
+      "category": ["notifications", "monitoring"],
+      "file": "OnlineNotify.dylib",
+      "size": "269KB",
+      "compatibility": {
+        "ios_min": "12.0",
+        "ios_max": "17.0",
+        "app_versions": ["22.0+"]
+      },
+      "features": [
+        "Real-time online notifications",
+        "Custom notification sounds",
+        "Track specific contacts",
+        "Detailed activity logs"
+      ],
+      "conflicts": [],
+      "verified": true,
+      "rating": 4.5
+    },
+
+    "regram": {
+      "name": "RegramB23",
+      "version": "2.3.0",
+      "author": "@FouadRaheb",
+      "description": "Save WhatsApp media without notifying senders",
+      "category": ["download", "privacy"],
+      "file": "RegramB23.dylib",
+      "size": "9.8MB",
+      "compatibility": {
+        "ios_min": "13.0",
+        "ios_max": "17.0",
+        "app_versions": ["23.0+"]
+      },
+      "features": [
+        "Save images & videos privately",
+        "Download status media",
+        "Bulk media saving",
+        "No sender notification",
+        "Custom save locations"
+      ],
+      "conflicts": [],
+      "verified": true,
+      "rating": 4.8
+    },
+
+    "wa-location-spoofer": {
+      "name": "WALocationSpoofer",
+      "version": "1.2.1",
+      "author": "Community",
+      "description": "Fake your location in WhatsApp",
+      "category": ["privacy", "location"],
+      "file": "WALocationSpoofer.dylib",
+      "size": "502KB",
+      "compatibility": {
+        "ios_min": "12.0",
+        "ios_max": "17.0",
+        "app_versions": ["22.0+"]
+      },
+      "features": [
+        "Fake GPS location",
+        "Custom location picker",
+        "Save favorite locations",
+        "No jailbreak detection"
+      ],
+      "conflicts": [],
+      "verified": true,
+      "rating": 4.3
     },
 
     "universal-adblock": {
@@ -197,10 +297,10 @@
   },
 
   "stats": {
-    "total_tweaks": 8,
-    "verified_tweaks": 7, 
-    "categories": 6,
+    "total_tweaks": 12,
+    "verified_tweaks": 11, 
+    "categories": 7,
     "supported_apps": 9,
-    "average_rating": 4.6
+    "average_rating": 4.7
   }
 }

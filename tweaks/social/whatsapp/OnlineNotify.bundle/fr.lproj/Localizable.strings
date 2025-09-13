@@ -1,0 +1,142 @@
+/* Paramètres */
+
+"PREFERENCES" = "Réglages OnlineNotify";
+
+"ONLINE_CONTACTS" = "Contacts en ligne";
+
+"TRACKING_TABLE" = "Liste des Contacts Suivis";
+"NOTIFICATIONS_LOGS" = "Journal de Notifications";
+
+"ENABLE_DESCRIPTION" = "Activer pour commencer à recevoir des notifications";
+"ENABEL_LABEL" = "Activer les notifications";
+
+"CONTACTS_NOTIFICATIONS_SECTION_HEADER" = "Contacts Notifications";
+"CONTACTS_NOTIFICATIONS_SECTION_FOOTER" = "- Obtenez des notifications en ligne/hors ligne pour les utilisateurs sélectionnés. (Ajoutez des utilisateurs à partir de la liste de suivi.\n- Obtenez une notification lorsque quelqu'un de vos contacts commence à taper.\n- Obtenez une notification lorsqu'un contact lit vos messages envoyés.";
+"ONLINE_NOTIFICATION_LABEL" = "Notifications en ligne";
+"OFFLINE_NOTIFICATION_LABEL" = "Notifications hors ligne";
+"TYPING_NOTIFICATION_LABEL" = "Notifications écrit";
+"RECORDING_NOTIFICATION_LABEL" = "Recording Notifications";
+"READ_MESSAGE_NOTIFICATION_LABEL" = "Lire les notifications des messages";
+"STATUS_VIEWED_NOTIFICATION_LABEL" = "Status Viewed Notifications";
+
+"GROUPS_NOTIFICATIONS_SECTION_HEADER" = "Groups Notifications";
+"GROUPS_NOTIFICATIONS_SECTION_FOOTER" = "Receive typing, recording and read messages notifications for the members in the groups you are in.";
+"GROUPS_TYPING_NOTIFICATION_LABEL" = "Typing Notifications";
+"GROUPS_RECORDING_NOTIFICATION_LABEL" = "Recording Notifications";
+"GROUPS_READ_MESSAGE_NOTIFICATION_LABEL" = "Read Messages Notifications";
+
+"LOG_NOTIFCATIONS_LABEL" = "Journal des connexions";
+"LOG_NOTIFCATIONS_DESCRIPTION" = "Enregistrez la notification en ligne/hors ligne/écrit de chaque contact que vous recevez, vous pouvez vérifier les journaux de la table des journaux.";
+
+"SELECTED_TYPING_LABEL" = "Ecrit pour les favoris";
+"SELECTED_RECORDING_LABEL" = "Recording for favorites";
+"SELECTED_READ_MESSAGE_LABEL" = "Lire les messages pour les favoris";
+"SELECTED_STATUS_VIEWED_LABEL" = "Status Viewed for Favorites";
+"SELECTED_NOTIFICATION_DESCRIPTION" = "Recevoir la notification des messages de saisie et de lecture uniquement pour les contacts favoris que vous avez sélectionnés dans la liste de suivi.";
+
+/* Notifications Settings */
+
+"NOTIFICATIONS_SETTINGS_SECTION_DESCRIPTION" = "Customize Notifications Style & Sound";
+"NOTIFICATIONS_SETTINGS_LABEL" = "Notifications Settings";
+
+"SHOW_TEST_NOTIFICATION" = "Afficher la notification d'exemple";
+"TEST_NOTIFICATION_MESSAGE" = "Exemple de message de notification";
+
+"NOTIFICATION_SOUND_LABEL" = "Son des notifications";
+"NOTIFICATION_SOUND_DESCRIPTION" = "Choisissez un son pour les notifications.";
+
+"NOTIFICATION_STYLE_LABEL" = "Notifications Style";
+"NOTIFICATION_STYLE_DESCRIPTION" = "In-App Notifications Banner Style";
+"NOTIFICATION_STYLE_STATUSBAR_LABEL" = "Status Bar";
+"NOTIFICATION_STYLE_SYSTEM_LABEL" = "System";
+
+"OUTSIDE_NOTIFICATIONS" = "Notifications extérieures";
+"OUTSIDE_NOTIFICATIONS_DESCRIPTION" = "Obtenez des notifications OnlineNotify en dehors de WhatsApp.\nNotez que WhatsApp doit être actif en arrière-plan et vous serez montré en ligne.";
+
+"ONLINE_CONTACTS_LIST_DESCRIPTION" = "Ajoutez une ligne en haut de Chats List pour vérifier vos contacts en ligne.";
+"ONLINE_CONTACTS_LIST_LABEL" = "Liste de contacts en ligne";
+"ONLINE_CONTACTS_LIST_ONLINE_HEADER" = "Online";
+"ONLINE_CONTACTS_LIST_OFFLINE_HEADER" = "Offline";
+"ONLINE_CONTACTS_LIST_ALERT_MESSAGE" = "La fonction de contacts en ligne a toujours été une raison pour laquelle vous avez bloqué la demande de vos contacts qui dure habituellement après quelques heures. La raison de ce blocage est due au grand nombre de requêtes car vous récupérez le long-temps de votre liste de contacts.\n\nPar conséquent, j'ai décidé de faire de cette liste une liste en ligne des contacts que vous choisissez de suivre et non de toute votre liste de contacts.";
+"ONLINE_CONTACTS_LIST_PREFERENCES_TITLE" = "Paramètres de la liste";
+"ONLINE_CONTACTS_LIST_SELECTED_CONTACTS" = "Contacts sélectionnés";
+"ONLINE_CONTACTS_LIST_PICKER_TITLE" = "Contacts";
+"ONLINE_CONTACTS_LIST_SHOW_OFFLINE_CONTACTS" = "Afficher les contacts hors ligne";
+"ONLINE_CONTACTS_LIST_SHOW_OFFLINE_LASTSEEN" = "Afficher la dernière connexion des contacts";
+
+"ENABLE_NOTIFICATIONS_ALERT" = "WhatsApp doit être relancé afin d'activer les notifications";
+"DISABLE_NOTIFICATIONS_ALERT" = "WhatsApp doit être relancé afin de désactiver les notifications";
+"ENABLE_OUTSIDE_NOTIFICATION_ALERT" = "En activant les notifications extérieures, votre WiFi sera actif une fois que l'appareil a été verrouillé et vous serez toujours affiché en ligne, même lorsque WhatsApp est en arrière-plan";
+
+/* Indicators */
+
+"ONLINE_INDICATORS_LABEL" = "Online Indicators";
+"ONLINE_INDICATORS_SECTION_DESCRIPTION" = "Adds an Online Indicator next to your contacts in different places.";
+
+"ONLINE_INDICATORS_STYLE_SECTION_LABEL" = "Style";
+
+"ONLINE_INDICATOR_STYLE_LABEL" = "Online Indicator Style";
+"ONLINE_INDICATOR_STYLE_BAR_LABEL" = "Bar";
+"ONLINE_INDICATOR_STYLE_ROUNDED_LABEL" = "Dot";
+
+"ONLINE_INDICATOR_COLOR_NAME_LABEL" = "Color Contact Name";
+
+"FAVORITES_LIST_LABEL" = "Liste des favoris";
+"FAVORITES_LIST_DESCRIPTION" = "- Ajoute un indicateur vert à côté des Utilisateurs en ligne dans la liste des favoris de Watusi qui remplace l'onglet de la caméra .. \ n- Remplacer l'état des contacts par leurs listes dans la liste des favoris de Watusi.";
+
+"GROUP_MEMBERS_LABEL" = "Membres du groupe";
+"GROUP_MEMBERS_DESCRIPTION" = "- Ajoute un indicateur vert à côté des utilisateurs en ligne dans la liste des membres du groupe.\n- Remplacer l'état des contacts par leur liste d'utilisateurs dans la liste des membres du groupe.";
+
+"CHATS_LIST_LABEL" = "Liste des chats";
+"CHATS_LIST_DESCRIPTION" = "Ajoute un indicateur vert à côté des utilisateurs en ligne dans la liste des chats.";
+
+"ONLINE_INDICATOR" = "Indicateur en ligne";
+"LAST_SEEN" = "Dernière vue";
+
+/* Buttons */
+
+"ADD_CONTACT" = "Ajouter un contact";
+"CONTACT_ALREADY_EXISTS" = "Le contact existe déjà";
+
+"RELAUNCH" = "Relance";
+"LATER" = "Plus tard";
+"CANCEL" = "Annuler";
+"OKAY" = "Ok";
+"DELETE" = "Supprimer";
+"ENABLE" = "Activer";
+"EXPORT" = "Exporter";
+
+/* Messages */
+
+"ZIP_AND_EXPORT_LOGS" = "Zip et exporter tous les journaux";
+"DELETE_ALL_LOGS_WARNING" = "Cette action supprime TOUS les journaux.";
+"DELETE_ALL_LOGS_FOR_WARNING" = "Cette action supprimera tous les journaux pour";
+
+"RELAUNCH_MESSAGE" = "Vous devez relancer WhatsApp afin d'appliquer les modifications";
+
+/* Notifications */
+
+"ONLINE" = "En ligne";
+"OFFLINE" = "Hors ligne";
+"IS_TYPING" = "écrit...";
+"IS_RECORDING" = "is recording...";
+"IS_TYPING_IN_GROUP" = "is typing in";
+"IS_RECORDING_IN_GROUP" = "is recording in";
+"IS_NOW_ONLINE" = "est maintenant en ligne";
+"HAS_GONE_OFFLINE_AT" = "est déconnecté de";
+"HAS_READ_YOUR_MESSAGES" = "a lu vos messages";
+"HAS_READ_YOUR_MESSAGES_IN_GROUP" = "a lu vos messages dans";
+"HAS_RECEIVED_YOUR_MESSAGES" = "a reçu vos messages";
+"HAS_RECEIVED_YOUR_MESSAGES_IN_GROUP" = "a reçu vos messages dans";
+"VIEWED_YOUR_STATUS" = "viewed your status";
+
+/* Developer & Support Section */
+
+"DEVELOPER_SECTION_HEADER" = "Developer";
+"CONTRIBUTE_LABEL" = "Contribute";
+
+"SUPPORT_SECTION_HEADER" = "Support";
+"CONTACT_AND_MORE_LABEL" = "Contact & More";
+"ACCOUNT_AND_AD_REMOVAL_LABEL" = "Account & Ad Removal";
+"CONTACT_SUPPORT_LABEL" = "Contact Support";
+"VERSIONS_SECTION_HEADER" = "Versions";
