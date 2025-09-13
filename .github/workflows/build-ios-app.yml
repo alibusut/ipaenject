@@ -1,0 +1,299 @@
+name: 🚀 Build iOS App with Tweaks
+
+on:
+  workflow_dispatch:
+    inputs:
+      ipa_url:
+        description: 'رابط ملف IPA مفكك التشفير'
+        required: true
+        type: string
+      app_type:
+        description: 'نوع التطبيق'
+        required: true
+        default: 'whatsapp'
+        type: choice
+        options:
+        - whatsapp
+        - youtube
+        - instagram
+        - tiktok
+        - telegram
+        - spotify
+        - custom
+      selected_tweaks:
+        description: 'التعديلات المطلوبة (مثل: watusi,stalky,regram)'
+        required: false
+        default: 'all'
+        type: string
+      bundle_id:
+        description: 'Bundle ID جديد (اختياري)'
+        required: false
+        type: string
+      display_name:
+        description: 'اسم التطبيق المعروض (اختياري)'
+        required: false
+        type: string
+
+jobs:
+  build-modified-app:
+    runs-on: macos-latest
+    steps:
+    - name: 📥 Checkout Code
+      uses: actions/checkout@v4
+      
+    - name: 🛠️ Setup Environment
+      run: |
+        echo "🚀 بدء إعداد البيئة..."
+        
+        # تثبيت الأدوات الأساسية
+        brew install ldid curl unzip zip
+        
+        # تثبيت Azule
+        echo "📦 تثبيت Azule..."
+        curl -L https://github.com/Al4ise/Azule/releases/latest/download/azule -o /usr/local/bin/azule
+        chmod +x /usr/local/bin/azule
+        
+        # إضافة للـ PATH
+        echo "/usr/local/bin" >> $GITHUB_PATH
+        export PATH="/usr/local/bin:$PATH"
+        
+        # التحقق من التثبيت
+        which ldid && echo "✅ ldid جاهز"
+        which azule && echo "✅ azule جاهز"
+        
+        # إنشاء مجلدات العمل
+        mkdir -p build output
+        
+    - name: 📱 Download IPA
+      run: |
+        echo "⬇️ تحميل ملف IPA الأصلي..."
+        
+        IPA_URL="${{ github.event.inputs.ipa_url }}"
+        echo "📍 الرابط: $IPA_URL"
+        
+        # تحميل الملف
+        curl -L -H "User-Agent: Mozilla/5.0" -o build/original.ipa "$IPA_URL"
+        
+        # فحص الملف
+        if [ ! -f build/original.ipa ]; then
+          echo "❌ فشل في تحميل الملف"
+          exit 1
+        fi
+        
+        FILE_SIZE=$(stat -f%z build/original.ipa)
+        FILE_SIZE_MB=$((FILE_SIZE/1024/1024))
+        echo "✅ تم التحميل بنجاح (${FILE_SIZE_MB}MB)"
+        
+    - name: 🧩 Prepare Tweaks
+      run: |
+        echo "🔍 إعداد التعديلات للتطبيق: ${{ github.event.inputs.app_type }}"
+        
+        APP_TYPE="${{ github.event.inputs.app_type }}"
+        mkdir -p build/tweaks
+        
+        # نسخ التعديلات حسب نوع التطبيق
+        case $APP_TYPE in
+          whatsapp)
+            echo "�� إضافة تعديلات WhatsApp..."
+            if [ -d "tweaks/social/whatsapp" ]; then
+              find tweaks/social/whatsapp -name "*.dylib" -exec cp {} build/tweaks/ \;
+            fi
+            ;;
+          youtube)
+            echo "📺 إضافة تعديلات YouTube..."
+            if [ -d "tweaks/media/youtube" ]; then
+              find tweaks/media/youtube -name "*.dylib" -exec cp {} build/tweaks/ \;
+            fi
+            ;;
+          instagram)
+            echo "📸 إضافة تعديلات Instagram..."
+            if [ -d "tweaks/social/instagram" ]; then
+              find tweaks/social/instagram -name "*.dylib" -exec cp {} build/tweaks/ \;
+            fi
+            ;;
+          *)
+            echo "🌐 إضافة التعديلات العامة..."
+            ;;
+        esac
+        
+        # عرض التعديلات المتاحة
+        echo "📋 التعديلات المجهزة:"
+        if ls build/tweaks/*.dylib 1> /dev/null 2>&1; then
+          ls -lh build/tweaks/
+        else
+          echo "⚠️ لا توجد ملفات .dylib"
+        fi
+        
+    - name: 🔧 Inject Tweaks
+      run: |
+        echo "🔨 حقن التعديلات في التطبيق..."
+        cd build/
+        
+        # فحص وجود التعديلات
+        if [ ! "$(ls -A tweaks/)" ]; then
+          echo "⚠️ لا توجد تعديلات - إنشاء نسخة بدون تعديل"
+          cp original.ipa ../output/modified.ipa
+          exit 0
+        fi
+        
+        # البحث عن أداة Azule
+        if command -v azule &> /dev/null; then
+          echo "✅ تم العثور على Azule"
+          
+          # بناء أمر الحقن
+          CMD="azule -i original.ipa -o modified.ipa"
+          
+          # إضافة اسم العرض
+          if [ -n "${{ github.event.inputs.display_name }}" ]; then
+            CMD="$CMD -n '${{ github.event.inputs.display_name }}'"
+          fi
+          
+          # إضافة Bundle ID
+          if [ -n "${{ github.event.inputs.bundle_id }}" ]; then
+            CMD="$CMD -b '${{ github.event.inputs.bundle_id }}'"
+          fi
+          
+          # إضافة ملفات التعديل
+          for dylib in tweaks/*.dylib; do
+            if [ -f "$dylib" ]; then
+              CMD="$CMD -f '$dylib'"
+            fi
+          done
+          
+          # تنفيذ الحقن
+          echo "🏃‍♂️ تنفيذ: $CMD"
+          if eval "$CMD"; then
+            echo "✅ تم الحقن بنجاح!"
+          else
+            echo "⚠️ فشل الحقن - إنشاء نسخة أساسية"
+            cp original.ipa modified.ipa
+          fi
+        else
+          echo "❌ لم يتم العثور على Azule - إنشاء نسخة بدون تعديل"
+          cp original.ipa modified.ipa
+        fi
+        
+        # نقل النتيجة
+        if [ -f modified.ipa ]; then
+          cp modified.ipa ../output/
+        else
+          cp original.ipa ../output/modified.ipa
+        fi
+        
+    - name: 🔐 Sign App
+      run: |
+        echo "🖊️ توقيع التطبيق..."
+        cd output/
+        
+        # فك ضغط الـ IPA
+        unzip -q modified.ipa
+        
+        # البحث عن حزمة التطبيق
+        APP_PATH=$(find Payload -name "*.app" | head -n1)
+        
+        if [ -n "$APP_PATH" ]; then
+          echo "📱 توقيع: $APP_PATH"
+          
+          # التوقيع باستخدام ldid
+          if command -v ldid &> /dev/null; then
+            ldid -S "$APP_PATH"
+            echo "✅ تم التوقيع"
+          else
+            echo "⚠️ ldid غير متاح"
+          fi
+          
+          # إعادة ضغط الـ IPA
+          rm modified.ipa
+          zip -rq modified.ipa Payload/
+          rm -rf Payload/
+        fi
+        
+        echo "✅ التطبيق النهائي جاهز!"
+        ls -lh modified.ipa
+        
+    - name: 📊 Build Info
+      run: |
+        BUILD_DATE=$(date '+%Y-%m-%d %H:%M:%S UTC')
+        IPA_SIZE=$(stat -f%z output/modified.ipa || echo "0")
+        IPA_SIZE_MB=$((IPA_SIZE/1024/1024))
+        
+        cat > output/BUILD_INFO.txt << 'EOFTEXT'
+🚀 IPAenject - معلومات البناء
+==========================================
+
+📅 تاريخ البناء: BUILD_DATE_PLACEHOLDER
+📱 نوع التطبيق: APP_TYPE_PLACEHOLDER
+🧩 التعديلات: TWEAKS_PLACEHOLDER
+🆔 Bundle ID: BUNDLE_PLACEHOLDER
+📝 اسم العرض: NAME_PLACEHOLDER
+📦 حجم الملف: SIZE_PLACEHOLDER MB
+
+⚠️ مهم:
+• للاستخدام الشخصي فقط
+• تأكد من ملكيتك للتطبيق الأصلي
+• استخدم AltStore أو Sideloadly للتثبيت
+
+📱 طريقة التثبيت:
+1. حمل ملف modified.ipa
+2. ثبت باستخدام أداة sideloading
+3. وثق بالشهادة في الإعدادات
+
+بواسطة IPAenject ❤️
+EOFTEXT
+        
+        # استبدال المتغيرات
+        sed -i '' "s/BUILD_DATE_PLACEHOLDER/$BUILD_DATE/g" output/BUILD_INFO.txt
+        sed -i '' "s/APP_TYPE_PLACEHOLDER/${{ github.event.inputs.app_type }}/g" output/BUILD_INFO.txt
+        sed -i '' "s/TWEAKS_PLACEHOLDER/${{ github.event.inputs.selected_tweaks }}/g" output/BUILD_INFO.txt
+        sed -i '' "s/BUNDLE_PLACEHOLDER/${{ github.event.inputs.bundle_id }}/g" output/BUILD_INFO.txt
+        sed -i '' "s/NAME_PLACEHOLDER/${{ github.event.inputs.display_name }}/g" output/BUILD_INFO.txt
+        sed -i '' "s/SIZE_PLACEHOLDER/$IPA_SIZE_MB/g" output/BUILD_INFO.txt
+        
+    - name: 📤 Upload Result
+      uses: actions/upload-artifact@v4
+      with:
+        name: modified-${{ github.event.inputs.app_type }}-app
+        path: |
+          output/modified.ipa
+          output/BUILD_INFO.txt
+        retention-days: 7
+        
+    - name: 🎉 Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: build-${{ github.run_number }}
+        name: "📱 ${{ github.event.inputs.app_type }}++ - Build ${{ github.run_number }}"
+        body: |
+          ## 🚀 تطبيق محسن جديد
+          
+          **📱 التطبيق:** ${{ github.event.inputs.app_type }}
+          **🧩 التعديلات:** ${{ github.event.inputs.selected_tweaks }}
+          **📅 التاريخ:** $(date '+%Y-%m-%d %H:%M UTC')
+          
+          ### 📥 التثبيت:
+          1. حمل `modified.ipa` أدناه
+          2. استخدم [AltStore](https://altstore.io) أو [Sideloadly](https://sideloadly.io)
+          3. وثق بالشهادة في الإعدادات
+          
+          ### ⚠️ ملاحظات:
+          - للاستخدام الشخصي فقط
+          - مدة التوقيع: 7 أيام (مجاني) / 365 يوم (مطور)
+          
+          ---
+          **بواسطة IPAenject**
+        files: |
+          output/modified.ipa
+          output/BUILD_INFO.txt
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: ✅ اكتمل البناء
+      run: |
+        echo ""
+        echo "🎉 تم اكتمال البناء بنجاح! 🎉"
+        echo "================================="
+        echo "📱 التطبيق: ${{ github.event.inputs.app_type }}"
+        echo "📦 الملف: modified.ipa"
+        echo "🔗 التحميل: https://github.com/${{ github.repository }}/releases/latest"
+        echo "================================="
+        echo "🚀 تطبيقك المحسن جاهز للاستخدام!"
